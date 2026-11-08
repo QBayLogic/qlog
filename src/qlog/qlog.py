@@ -108,6 +108,8 @@ def make_entry(title=None, issues=None, prs=None, cat=None, contents=None, inter
 
     timestamp = time.strftime(C.TIME_FORMAT)
 
+    # Titles given on the command line have not been cleaned by the prompt above
+    title = clean_string(title).lower()
     fname = C.ENTRY_FILENAME_FORMAT.format(title=title,time=timestamp,cat=cat,issues=issues)
     
     Entry(
