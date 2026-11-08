@@ -26,7 +26,7 @@ default_cats > elem > rank,100,,int,"The position of a category in the combined 
 default_cats > elem > itemize,TRUE,,bool,itemize entries even when there is only one entry in the category
 default_cats > elem > notitle,FALSE,,bool,hide the category title when there is only one entry in the category
 default_cat,HIGHLIGHT,,cat,the category to use for text placed before any heading
-time_format,%Y-%m-%d_T%H:%M:%S,,time,the timestamp format to use in the entry file filename
+time_format,%Y-%m-%d_T%H_%M_%S,,time,the timestamp format to use in the entry file filename
 entry_filename_format,{time}_{title}.md,"time, title",path,the format of the entry file filenames
 date_format,"%d %b, %Y",,time,the format of the date to use in the changelog header
 title_format,## {version} - *{date}*,"version, date",md,the header to put above the combined changelog

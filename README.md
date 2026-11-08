@@ -82,7 +82,7 @@ Confirm category FIXED [Y/n]:
 Enter contents
 To enter multiple lines, enter an empty line, then terminate with 3 empty lines
 > Fixed an infinite loop bug that caused the application to hang.
-/home/me/project/changelog/entries/2026-06-02_T22:02:39_fix_infinite_loop.md
+/home/me/project/changelog/entries/2026-06-02_T22_02_39_fix_infinite_loop.md
 ```
 
 ### Categories

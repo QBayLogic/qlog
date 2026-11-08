@@ -122,7 +122,7 @@ class Config:
             if not self.DEFAULT_CAT in self.DEFAULT_CATS.keys():
                 fatal(f"Default category {self.DEFAULT_CAT} does not exist.")
 
-            self.TIME_FORMAT = key("time_format",d="%Y-%m-%d_T%H:%M:%S") # use standard strftime parameters
+            self.TIME_FORMAT = key("time_format",d="%Y-%m-%d_T%H_%M_%S") # use standard strftime parameters
 
             self.ENTRY_FILENAME_FORMAT = key("entry_filename_format","time","title",d="{time}_{title}.md") # time, title
 
