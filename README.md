@@ -114,7 +114,10 @@ Entering any text before the category header puts it in the `HIGHLIGHTS` categor
 ### Checking entries
 To check whether there are any issues with your entries, run `qlog check`.
 This will check the last edited entry by default. It's also possible to
-pass the path to an entry file, or check all entries with `-a`/`-all`.
+pass the path to an entry file, or check all entries with `-a`/`--all`.
+
+Add `-L`/`--no-links` to check that every entry either links issues or PRs,
+or explicitly sets the no-links flag, but not both.
 
 Add `-t`/`--types` to check that the issues and PRs that have been linked,
 are actually issues and PRs.
