@@ -47,10 +47,10 @@ class App:
         #TODO: add a way to include only select files?
 
         parser_check = subparsers.add_parser("check", help="check if an entry is correct", description="Check one or more entries for errors.")
-        parser_check.add_argument("path"           , nargs="*", type=pathlib.Path    , help="entries to check; defaults to last edited")
-        parser_check.add_argument("-a","--all"     , action="store_true"             , help="check all entries")
-        parser_check.add_argument("-L","--no-links", action="store_true",dest="links", help="check that entries either link issues/PRs or set the no-links flag, but not both")
-        parser_check.add_argument("-t","--types"   , action="store_true"             , help="check with GitHub that issues are issues and PRs are PRs (slow)")
+        parser_check.add_argument("path"                 , nargs="*", type=pathlib.Path      , help="entries to check; defaults to last edited")
+        parser_check.add_argument("-a","--all"           , action="store_true"               , help="check all entries")
+        parser_check.add_argument("-L","--allow-no-links", action="store_false", dest="links", help="allow entries to not link issues/PRs without setting the no-links flag")
+        parser_check.add_argument("-t","--types"         , action="store_true"               , help="check with GitHub that issues are issues and PRs are PRs (slow)")
 
         parser_clean = subparsers.add_parser("clean", help="clean up entries, or check all entries have been collected", description="Make sure all entries have been removed." )
         parser_clean.add_argument("-D","--delete", action="store_true", help="delete remaining entries; if this flag is not specified, the program will error if any entries are left")
@@ -118,7 +118,7 @@ class App:
                 check(
                     paths = args.path,
                     all = args.all,
-                    links = args.links,
+                    links_required = args.links,
                     types = args.types,
                 )
             case "clean":
