@@ -108,6 +108,8 @@ def make_entry(title=None, issues=None, prs=None, cat=None, contents=None, inter
 
     timestamp = time.strftime(C.TIME_FORMAT)
 
+    # Titles given on the command line have not been cleaned by the prompt above
+    title = clean_string(title).lower()
     fname = C.ENTRY_FILENAME_FORMAT.format(title=title,time=timestamp,cat=cat,issues=issues)
     
     Entry(
@@ -252,7 +254,7 @@ def collect(version=None, date=None, delete=False, skip_on_error=False, link_com
     
 
 
-def check(paths = None, all=False, links=True, types=False):
+def check(paths = None, all=False, links_required=True, types=False):
     paths = get_paths(paths,all)
     if not paths:
         eprint("No entries to check")
@@ -264,8 +266,7 @@ def check(paths = None, all=False, links=True, types=False):
         if entry is None:
             continue
 
-        if links:
-            check_links(entry,links)
+        check_links(entry,links_required)
 
         if types:
             check_link_types(entry)
